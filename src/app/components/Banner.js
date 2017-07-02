@@ -5,10 +5,16 @@ export class Banner extends React.Component {
         super();  // to execute parent constructor since we are inheriting from react.compoent
         this.state = {
             number : props.initialNumber,
+            anothernumber: props.initialAnothernum,
             status : 0
             
         };
         //this.number = props.number;
+        setTimeout(() =>{
+            this.setState({
+                status : this.state.status + 1
+            });
+        },3000);
     }
 
     onAddCounter() {
@@ -18,6 +24,14 @@ export class Banner extends React.Component {
         });
         //this.number += 1;
         //console.log(this.number);  // data need to reflect we need change the state
+    };
+
+    
+
+    onAddCounteranother(){
+        this.setState({
+            anothernumber: this.state.anothernumber + 1
+        });
     };
 
     render(){
@@ -35,7 +49,9 @@ export class Banner extends React.Component {
                     <h1>{bannerData.pageTitle}</h1>
                     <p>{bannerData.desc}</p>
                     <p>Status: {this.state.status}</p>
-                    <p><a className="btn btn-primary btn-lg" href="#" onClick={() => this.onAddCounter()}  role="button">{bannerData.btntxt} {this.state.number}</a></p>
+                    <p><a className="btn btn-primary" href="#" onClick={() => this.onAddCounter()}  role="button">{bannerData.btntxt} {this.state.number}</a></p>
+                    <p><a className="btn btn-primary" href="#" onClick={() => this.onAddCounteranother()}  role="button">{bannerData.btntxt} {this.state.anothernumber}</a></p>
+                    <p><a className="btn btn-success" href="#" onClick={this.props.greet}  role="button">Greet</a></p>
                 </div>
             </div>
         );
@@ -48,6 +64,7 @@ Banner.propTypes = {
     pageTitle: React.PropTypes.string,
     desc: React.PropTypes.string,
     btntxt: React.PropTypes.string,
+    greet: React.PropTypes.func
 };
 
 
