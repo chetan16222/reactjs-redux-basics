@@ -1,28 +1,24 @@
 import React from "react";
 import {render} from "react-dom";
 
-import { User } from './components/User';
-import { Main } from './components/Main';
+import { Header } from "./components/Header";
+import { Home } from "./components/Home";
+import { Banner } from "./components/Banner";
 
 class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            username: "Max"
-        };
-    }
-
-    changeUsername(newName) {
-        this.setState({
-            username: newName
-        });
-    }
-
     render() {
+        var cartData = {
+            siteName : "Valley Cart",
+            mainNav:["Home", "About","Portfolio", "Contact US"]
+        };
         return (
-            <div className="container">
-                <Main changeUsername={this.changeUsername.bind(this)}/>
-                <User username={this.state.username}/>
+            <div>
+                <div className="cmpt">
+                    <Header cartData={cartData}>
+                        <span className="compt-title">Header</span>
+                    </Header>
+                </div>
+                <div className="cmpt cmpt-banner"><Banner/></div>
             </div>
         );
     }
