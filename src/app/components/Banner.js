@@ -3,12 +3,21 @@ import React from "react";
 export class Banner extends React.Component {
     constructor(props){
         super();  // to execute parent constructor since we are inheriting from react.compoent
-        this.number = props.number;
+        this.state = {
+            number : props.initialNumber,
+            status : 0
+            
+        };
+        //this.number = props.number;
     }
 
     onAddCounter() {
-        this.number += 1;
-        console.log(this.number);  // data need to reflect we need change the state
+
+        this.setState({
+            number: this.state.number + 1
+        });
+        //this.number += 1;
+        //console.log(this.number);  // data need to reflect we need change the state
     };
 
     render(){
@@ -25,7 +34,8 @@ export class Banner extends React.Component {
                 <div className="container">
                     <h1>{bannerData.pageTitle}</h1>
                     <p>{bannerData.desc}</p>
-                    <p><a className="btn btn-primary btn-lg" href="#" onClick={() => this.onAddCounter()}  role="button">{bannerData.btntxt} {this.number}</a></p>
+                    <p>Status: {this.state.status}</p>
+                    <p><a className="btn btn-primary btn-lg" href="#" onClick={() => this.onAddCounter()}  role="button">{bannerData.btntxt} {this.state.number}</a></p>
                 </div>
             </div>
         );

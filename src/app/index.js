@@ -18,7 +18,7 @@ class App extends React.Component {
                         <span className="compt-title">Header</span>
                     </Header>
                 </div>
-                <div className="cmpt cmpt-banner"><Banner number={0} /></div>
+                <div className="cmpt cmpt-banner"><Banner initialNumber={0} /></div>
             </div>
         );
     }
