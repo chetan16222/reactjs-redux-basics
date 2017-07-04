@@ -17,6 +17,36 @@ export class Banner extends React.Component {
                 status : this.state.status + 1
             });
         },3000);
+        console.log("Constructor");
+    }
+
+    componentWillMount(){
+        console.log("Component Will Mount"); 
+    };
+
+    componentDidMount(){
+        console.log("Component Did Mount");
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log("Component will Receive Props",nextProps);
+    }
+
+    shouldComponentUpdate(nextProps,nextState){
+        console.log("should Component Update",nextProps,nextState);
+        return true;
+    }
+
+    componentWillUpdate(nextProps,nextState){
+        console.log("compoent will update",nextProps,nextState);
+    }
+
+    componentDidUpdate(prevProps,prevState){
+        console.log("compoent did update",prevProps,prevState);
+    }
+
+    componentWillUnmount(){
+        console.log("compoent will unmount");
     }
 
     onAddCounter() {
